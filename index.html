@@ -96,35 +96,7 @@ body{
 
 </div>
 
-<script>
-// const links = [
-//     "https://example1.com",
-//     "https://example2.com",
-//     "https://example3.com",
-//     "https://example4.com"
-// ];
 
-let currentIndex =
-    parseInt(localStorage.getItem("linkIndex")) || 0;
-
-function getNextLink(){
-    const link = links[currentIndex];
-
-    currentIndex = (currentIndex + 1) % links.length;
-
-    localStorage.setItem("linkIndex", currentIndex);
-
-    return link;
-}
-
-function visitLink(){
-    window.open(getNextLink(), "_blank");
-}
-
-function closeCard(){
-    document.getElementById("promoCard").style.display = "none";
-}
-</script>
 
 <!-- Social Bar -->
 <script src="https://pl29784085.effectivecpmnetwork.com/1c/ef/56/1cef56542955c8f71a9aa57f5d19d3fe.js"></script>
