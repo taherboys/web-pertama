@@ -8,26 +8,42 @@
 </head>
 <body>
 
-    <div class="card" id="promoCard">
-        <button class="close-btn" onclick="closeCard()">✕</button>
+<div class="card" id="promoCard">
 
-        <img src="https://via.placeholder.com/300x180" alt="Gambar">
+    <button class="close-btn" onclick="closeCard()">✕</button>
 
-        <div class="content">
-            <h2>Judul Konten</h2>
-            <p>Deskripsi singkat konten atau promosi.</p>
+    <img src="https://via.placeholder.com/320x180" alt="Banner">
 
-            <a href="https://example.com" target="_blank" class="btn">
-                Kunjungi
-            </a>
-        </div>
+    <div class="content">
+        <h2>Selamat Datang</h2>
+        <p>Klik tombol di bawah untuk mengunjungi website.</p>
+
+        <a href="https://example.com"
+           target="_blank"
+           class="btn"
+           onclick="runAds()">
+            Kunjungi
+        </a>
     </div>
 
-    <script>
-        function closeCard() {
-            document.getElementById("promoCard").style.display = "none";
-        }
-    </script>
+</div>
+
+<script>
+function runAds() {
+    const s1 = document.createElement("script");
+    s1.src = "https://pl29784055.effectivecpmnetwork.com/04/d4/e6/04d4e60cfb315b428083e600e7570e73.js";
+    document.body.appendChild(s1);
+
+    const s2 = document.createElement("script");
+    s2.src = "https://pl29784085.effectivecpmnetwork.com/1c/ef/56/1cef56542955c8f71a9aa57f5d19d3fe.js";
+    document.body.appendChild(s2);
+}
+
+function closeCard() {
+    runAds();
+    document.getElementById("promoCard").style.display = "none";
+}
+</script>
 
 </body>
 </html>
