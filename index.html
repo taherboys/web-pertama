@@ -10,34 +10,47 @@
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:Arial, sans-serif;
+    font-family:Arial,sans-serif;
 }
 
 body{
+    min-height:100vh;
     display:flex;
     justify-content:center;
     align-items:center;
-    min-height:100vh;
-    background:#f0f0f0;
+    background:#f3f4f6;
 }
 
 .card{
-    position:relative;
-    width:350px;
+    width:360px;
     background:#fff;
-    border-radius:15px;
+    border-radius:16px;
     overflow:hidden;
-    box-shadow:0 5px 20px rgba(0,0,0,.15);
+    box-shadow:0 10px 25px rgba(0,0,0,.15);
+    position:relative;
 }
 
-.card img{
+.close-btn{
+    position:absolute;
+    top:10px;
+    right:10px;
+    width:32px;
+    height:32px;
+    border:none;
+    border-radius:50%;
+    background:rgba(0,0,0,.7);
+    color:#fff;
+    cursor:pointer;
+    font-size:16px;
+}
+
+.banner{
     width:100%;
     display:block;
 }
 
 .content{
     padding:20px;
-    text-align:center;
 }
 
 .content h2{
@@ -46,40 +59,20 @@ body{
 
 .content p{
     color:#666;
-    margin-bottom:15px;
+    margin-bottom:20px;
 }
 
-.btn{
-    display:inline-block;
-    padding:12px 25px;
-    background:#007BFF;
+.visit-btn{
+    width:100%;
+    border:none;
+    padding:12px;
+    border-radius:10px;
+    background:#2563eb;
     color:#fff;
-    text-decoration:none;
-    border-radius:8px;
-    cursor:pointer;
-    border:none;
     font-size:16px;
-}
-
-.btn:hover{
-    opacity:.9;
-}
-
-.close-btn{
-    position:absolute;
-    top:10px;
-    right:10px;
-    width:35px;
-    height:35px;
-    border:none;
-    border-radius:50%;
-    background:rgba(0,0,0,.7);
-    color:white;
-    font-size:18px;
     cursor:pointer;
 }
 </style>
-
 </head>
 <body>
 
@@ -87,13 +80,16 @@ body{
 
     <button class="close-btn" onclick="closeCard()">✕</button>
 
-    <img src="https://via.placeholder.com/350x200" alt="Banner">
+    <img
+        class="banner"
+        src="https://via.placeholder.com/360x220"
+        alt="Banner">
 
     <div class="content">
-        <h2>Selamat Datang</h2>
-        <p>Silakan klik tombol di bawah untuk melanjutkan.</p>
+        <h2>Promo Spesial</h2>
+        <p>Klik tombol di bawah untuk mengunjungi halaman tujuan.</p>
 
-        <button class="btn" onclick="visitLink()">
+        <button class="visit-btn" onclick="visitLink()">
             Kunjungi
         </button>
     </div>
@@ -101,8 +97,6 @@ body{
 </div>
 
 <script>
-
-// DAFTAR LINK
 const links = [
     "https://example1.com",
     "https://example2.com",
@@ -110,47 +104,26 @@ const links = [
     "https://example4.com"
 ];
 
-// SIMPAN INDEX AGAR TIDAK RESET SAAT REFRESH
-let currentIndex = parseInt(localStorage.getItem("linkIndex")) || 0;
+let currentIndex =
+    parseInt(localStorage.getItem("linkIndex")) || 0;
 
-function getNextLink() {
+function getNextLink(){
     const link = links[currentIndex];
 
     currentIndex = (currentIndex + 1) % links.length;
+
     localStorage.setItem("linkIndex", currentIndex);
 
     return link;
 }
 
-function runAds() {
-
-    const s1 = document.createElement("script");
-    s1.src = "https://pl29784055.effectivecpmnetwork.com/04/d4/e6/04d4e60cfb315b428083e600e7570e73.js";
-    document.body.appendChild(s1);
-
-    const s2 = document.createElement("script");
-    s2.src = "https://pl29784085.effectivecpmnetwork.com/1c/ef/56/1cef56542955c8f71a9aa57f5d19d3fe.js";
-    document.body.appendChild(s2);
+function visitLink(){
+    window.open(getNextLink(), "_blank");
 }
 
-function visitLink() {
-    runAds();
-
-    setTimeout(() => {
-        window.open(getNextLink(), "_blank");
-    }, 500);
-}
-
-function closeCard() {
-    runAds();
-
-    setTimeout(() => {
-        window.open(getNextLink(), "_blank");
-    }, 500);
-
+function closeCard(){
     document.getElementById("promoCard").style.display = "none";
 }
-
 </script>
 
 </body>
