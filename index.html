@@ -42,6 +42,7 @@ body{
     color:#fff;
     cursor:pointer;
     font-size:16px;
+    z-index: 10;
 }
 
 .banner{
@@ -78,6 +79,7 @@ body{
 
 <div class="card" id="promoCard">
 
+    <!-- Tombol Close -->
     <button class="close-btn" onclick="closeCard()">✕</button>
 
     <img
@@ -89,6 +91,7 @@ body{
         <h2>Promo Spesial</h2>
         <p>Klik tombol di bawah untuk mengunjungi halaman tujuan.</p>
 
+        <!-- Tombol Kunjungi -->
         <button class="visit-btn" onclick="visitLink()">
             Kunjungi
         </button>
@@ -96,7 +99,29 @@ body{
 
 </div>
 
+<!-- Script Logika Tombol -->
+<script>
+    function closeCard() {
+        // Menyembunyikan kartu promo saat tombol X diklik
+        var card = document.getElementById('promoCard');
+        if (card) {
+            card.style.display = 'none';
+        }
+        
+        // Catatan: Skrip popunder pihak ketiga secara otomatis akan 
+        // menangkap klik ini dan membuka iklan di tab baru/latar belakang.
+    }
 
+    function visitLink() {
+        // Tentukan link tujuan utama kamu di sini (misal: google.com atau halaman produk)
+        var urlTujuan = "https://www.contoh-link-tujuan.com"; 
+        
+        // Membuka link tujuan di tab baru
+        window.open(urlTujuan, '_blank');
+        
+        // Catatan: Klik ini juga otomatis memicu skrip popunder yang terpasang di bawah.
+    }
+</script>
 
 <!-- Social Bar -->
 <script src="https://pl29784085.effectivecpmnetwork.com/1c/ef/56/1cef56542955c8f71a9aa57f5d19d3fe.js"></script>
