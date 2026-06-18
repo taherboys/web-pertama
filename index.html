@@ -3,14 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lanjutkan</title>
+<title>Promo</title>
 
 <style>
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:Arial, sans-serif;
+    font-family:Arial,sans-serif;
 }
 
 body{
@@ -18,99 +18,80 @@ body{
     display:flex;
     justify-content:center;
     align-items:center;
-    background:#f5f5f5;
+    background:linear-gradient(135deg,#667eea,#764ba2);
 }
 
 .card{
-    width:350px;
+    width:380px;
     background:#fff;
-    border-radius:15px;
+    border-radius:20px;
     overflow:hidden;
-    box-shadow:0 5px 20px rgba(0,0,0,.15);
+    box-shadow:0 15px 40px rgba(0,0,0,.2);
     position:relative;
 }
 
 .close-btn{
     position:absolute;
-    top:10px;
-    right:10px;
-    width:35px;
-    height:35px;
+    top:12px;
+    right:12px;
+    width:40px;
+    height:40px;
     border:none;
     border-radius:50%;
     background:#ff4d4d;
     color:#fff;
-    font-size:18px;
+    font-size:20px;
     cursor:pointer;
+    transition:.3s;
+}
+
+.close-btn:hover{
+    transform:scale(1.1);
 }
 
 .banner{
     width:100%;
-    height:200px;
+    height:220px;
     object-fit:cover;
 }
 
 .content{
-    padding:20px;
+    padding:25px;
     text-align:center;
 }
 
 .content h2{
     margin-bottom:10px;
+    color:#333;
 }
 
 .content p{
     color:#666;
-    margin-bottom:20px;
-}
-
-.continue-btn{
-    width:100%;
-    padding:12px;
-    border:none;
-    border-radius:8px;
-    background:#007bff;
-    color:white;
-    font-size:16px;
-    cursor:pointer;
-}
-
-.continue-btn:hover{
-    opacity:.9;
+    line-height:1.5;
 }
 </style>
 </head>
 <body>
 
-<div class="card" id="popupCard">
+<div class="card">
 
-    <button class="close-btn" onclick="closeCard()">✕</button>
+    <!-- Ganti URL tujuan di bawah -->
+    <button class="close-btn"
+        onclick="window.location.href='https://website-kamu.com'">
+        ✕
+    </button>
 
     <img
         class="banner"
-        src="https://via.placeholder.com/350x200"
+        src="https://via.placeholder.com/380x220"
         alt="Banner">
 
     <div class="content">
-        <h2>Judul Konten</h2>
-        <p>Silakan klik tombol di bawah untuk melanjutkan.</p>
-
-        <button class="continue-btn" onclick="continueAction()">
-            Lanjutkan
-        </button>
+        <h2>Selamat Datang</h2>
+        <p>Klik tombol X di pojok kanan atas untuk melanjutkan ke halaman tujuan.</p>
     </div>
 
 </div>
-
-<script>
-function closeCard() {
-    document.getElementById("popupCard").style.display = "none";
-}
-
-function continueAction() {
-    window.location.href = "https://example.com";
-}
-</script>
 
 </body>
 </html>
